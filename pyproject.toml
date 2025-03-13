@@ -1,10 +1,9 @@
 [project]
 name = "streamlit-pasword-suggestion"
 version = "0.1.0"
-description = "Add your description here"
+description = "Simple Python + Streamlit Password Strength Meter "
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "pyperclip>=1.9.0",
     "streamlit>=1.43.2",
 ]

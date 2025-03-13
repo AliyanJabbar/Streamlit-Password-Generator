@@ -1,7 +1,6 @@
 import streamlit as st
 import random
 import string
-import pyperclip
 
 
 def passwgen(length, use_int, use_special):
@@ -24,21 +23,14 @@ length = st.slider("Length of password", min_value=5, max_value=50, value=10)
 use_int = st.checkbox("Use Numbers 🔢")
 use_special = st.checkbox("Use Special Characters")
 
-# Store password in session state
 if "password" not in st.session_state:
     st.session_state.password = ""
 
 if st.button("Generate Password 🧬"):
     st.session_state.password = passwgen(length, use_int, use_special)
-    st.success(f"Generated Password: {st.session_state.password}")
-
-# Separate copy button
-if st.button("Copy Generated Password"):
-    if st.session_state.password:
-        pyperclip.copy(st.session_state.password)
-        st.success("Password copied to clipboard! ✅")
-    else:
-        st.error("Please Generate a Password first ")
+    st.success("Password Has Been Generated Successfully ✅")
+    st.write("""## Copy your Generated Password 🔽""")
+    st.code(st.session_state.password,language=None)
 
 if st.session_state.password:
     st.markdown(
